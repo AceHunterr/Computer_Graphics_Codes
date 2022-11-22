@@ -6,7 +6,7 @@ x_cent = int(input("Enter x-coordinates of the center: "))
 y_cent = int(input("Enter y-coordinates of the center: "))
 r = int(input("Enter the radius of the circle: "))
 
-
+ 
 
 ### Initializations
 x_quad1 = []

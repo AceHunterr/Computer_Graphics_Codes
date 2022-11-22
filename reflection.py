@@ -14,63 +14,137 @@ import numpy as np
 # x3=int(input("x3: "))
 # y3=int(input("y3: "))
 
-x1=-1
-x2=0
-x3=1
-x4=0
 
-y1=0
-y2=-2
-y3=0
-y4=2
+def part_a():
+# Reflection about y=2
+    x1=-1
+    x2=0    
+    x3=1
+    x4=0
 
-X=[x1,x2,x3,x4,x1]
-Y=[y1,y2,y3,y4,y1]
+    y1=0
+    y2=-2
+    y3=0
+    y4=2
 
-plt.plot(X,Y)
-plt.show()
+    X=[x1,x2,x3,x4,x1]
+    Y=[y1,y2,y3,y4,y1]
 
-x_trans = 0
-y_trans = 2
+    plt.plot(X,Y)
+    plt.show()
 
-# For translation to origin 
-T1=[[1,0,-x_trans],
-    [0,1,-y_trans],
-    [0,0,1]]
+    x_trans = 0  #Translating the the x_cor  
+    y_trans = 2  #Translating the the y_cor
 
-x_reflection = 1
-y_reflection = -1
+    # For translation to origin 
+    T1=[[1,0,-x_trans],
+        [0,1,-y_trans],
+        [0,0,1]]
 
-# For reflection
-T2=[[x_reflection,0,0],
-    [0,y_reflection,0],
-    [0,0,1]]
+    x_reflection = 1
+    y_reflection = -1   # For the the reflection about y=0
 
-# For translation to actual points
-T3=[[1,0,x_trans],
-    [0,1,y_trans],
-    [0,0,1]]
+    # For reflection
+    T2=[[x_reflection,0,0],
+        [0,y_reflection,0],
+        [0,0,1]]
 
-t = np.dot(T1,T2)
-T = np.dot(t,T3)
-X_new = []
-Y_new = []
+    # For translation to actual points
+    T3=[[1,0,x_trans],
+        [0,1,y_trans],
+        [0,0,1]]
 
-print(T)
+    t = np.dot(T3,T2)
+    T = np.dot(t,T1)
+    X_new = []
+    Y_new = []
 
-for i in range(len(X)):
-    B=[X[i],Y[i],1]
-    R=np.dot(T,B)
-    print(R)
-    X_new.append(R[0])
-    Y_new.append(R[1])
+    print(T)
+
+    for i in range(len(X)):
+        B=[X[i],Y[i],1]
+        R=np.dot(T,B)
+        print(R)
+        X_new.append(R[0])
+        Y_new.append(R[1])
+        
+    print(X_new,Y_new)
+
+    fig = plt.figure()
+    # ax = fig.add_subplot(111)
+
+    plt.plot(X,Y,X_new,Y_new)
+    plt.show()
+
+
+
+
+def part_b():
+# Reflection about y=3x+4
     
-print(X_new,Y_new)
+    x1=-1
+    x2=0
+    x3=1
+    x4=0
 
-fig = plt.figure()
-# ax = fig.add_subplot(111)
+    y1=0
+    y2=-2
+    y3=0
+    y4=2
 
-plt.plot(X,Y,X_new,Y_new)
-plt.show()
+    X=[x1,x2,x3,x4,x1]
+    Y=[y1,y2,y3,y4,y1]
 
+    plt.plot(X,Y)
+    plt.show()
+
+    x_trans = 0
+    y_trans = 4
+
+    # For translation to origin 
+    T1=[[1,0,-x_trans],
+        [0,1,-y_trans],
+        [0,0,1]]
+
+    # x_reflection = 1
+    # y_reflection = -1
+
+    slope = 3 # For the slope of y=3x
+
+    # For reflection
+    T2=[[0,slope,0],
+        [slope,0,0],
+        [0,0,1]]
+
+    # For translation to actual points
+    T3=[[1,0,x_trans],
+        [0,1,y_trans],
+        [0,0,1]]
+
+    t = np.dot(T3,T2)
+    T = np.dot(t,T1)
+    X_new = []
+    Y_new = []
+
+    print(f"{T}\n" )
+
+    for i in range(len(X)):
+        B=[X[i],Y[i],1]
+        R=np.dot(T,B)
+        print(R)
+        X_new.append(R[0])
+        Y_new.append(R[1])
+        
+    print(X_new,Y_new)
+
+    fig = plt.figure()
+    # ax = fig.add_subplot(111)
+
+    plt.plot(X,Y,X_new,Y_new)
+    plt.show()
+
+
+
+# part_a()
+part_b()
 
