@@ -17,7 +17,6 @@ x_fix=int(input("x coordinate to be fixed "))
 y_fix=int(input("y coordinate to be fixed "))
 
 
-
 X_new=[]
 Y_new=[]
 
@@ -41,12 +40,6 @@ for i in range(len(X)):
     R=np.dot(tf,B)
     X_new.append(R[0])
     Y_new.append(R[1])
-    
-    
-    
-X_new
-Y_new
-
 
 fig = plt.figure()
 
