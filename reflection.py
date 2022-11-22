@@ -16,7 +16,7 @@ import numpy as np
 
 
 def part_a():
-# Reflection about y=2
+
     x1=-1
     x2=0    
     x3=1
@@ -33,23 +33,21 @@ def part_a():
     plt.plot(X,Y)
     plt.show()
 
-    x_trans = 0  #Translating the the x_cor  
-    y_trans = 2  #Translating the the y_cor
+    x_trans = 0    
+    y_trans = 2  
 
-    # For translation to origin 
     T1=[[1,0,-x_trans],
         [0,1,-y_trans],
         [0,0,1]]
 
     x_reflection = 1
-    y_reflection = -1   # For the the reflection about y=0
+    y_reflection = -1   
 
-    # For reflection
     T2=[[x_reflection,0,0],
         [0,y_reflection,0],
         [0,0,1]]
 
-    # For translation to actual points
+    
     T3=[[1,0,x_trans],
         [0,1,y_trans],
         [0,0,1]]
@@ -71,7 +69,7 @@ def part_a():
     print(X_new,Y_new)
 
     fig = plt.figure()
-    # ax = fig.add_subplot(111)
+    
 
     plt.plot(X,Y,X_new,Y_new)
     plt.show()
@@ -80,7 +78,6 @@ def part_a():
 
 
 def part_b():
-# Reflection about y=3x+4
     
     x1=-1
     x2=0
@@ -101,22 +98,17 @@ def part_b():
     x_trans = 0
     y_trans = 4
 
-    # For translation to origin 
     T1=[[1,0,-x_trans],
         [0,1,-y_trans],
         [0,0,1]]
 
-    # x_reflection = 1
-    # y_reflection = -1
 
-    slope = 3 # For the slope of y=3x
+    slope = 3 
 
-    # For reflection
     T2=[[0,slope,0],
         [slope,0,0],
         [0,0,1]]
 
-    # For translation to actual points
     T3=[[1,0,x_trans],
         [0,1,y_trans],
         [0,0,1]]
@@ -138,13 +130,11 @@ def part_b():
     print(X_new,Y_new)
 
     fig = plt.figure()
-    # ax = fig.add_subplot(111)
 
     plt.plot(X,Y,X_new,Y_new)
     plt.show()
 
 
 
-# part_a()
 part_b()
 
